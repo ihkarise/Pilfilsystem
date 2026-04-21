@@ -6,6 +6,7 @@ import { useState } from "react";
 const Navbar = () => {
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const baseUrl = import.meta.env.BASE_URL;
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -28,7 +29,7 @@ const Navbar = () => {
           {/* Logo Section */}
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity pl-4 pr-6 shrink-0" onClick={() => setIsOpen(false)}>
             <img 
-              src="/logo.png" 
+              src={`${baseUrl}logo.png`} 
               alt="Pill-Fil Logo" 
               className="h-8 w-auto object-contain" 
               referrerPolicy="no-referrer"

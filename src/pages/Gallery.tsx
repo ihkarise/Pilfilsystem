@@ -1,6 +1,7 @@
 import { Play } from "lucide-react";
 
 const Gallery = () => {
+    const baseUrl = import.meta.env.BASE_URL;
     return (
         <div className="pt-20">
             <section id="gallery" className="bg-bg-white min-h-[80vh] flex flex-col justify-center">
@@ -12,7 +13,7 @@ const Gallery = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 aspect-video md:aspect-auto">
                         <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl shadow-soft">
                             <img 
-                                src="/gallery-main.png" 
+                                src={`${baseUrl}gallery-main.png`} 
                                 alt="Action 1" 
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 referrerPolicy="no-referrer"
@@ -26,7 +27,7 @@ const Gallery = () => {
                         </div>
                         <div className="relative group overflow-hidden rounded-xl shadow-soft h-[300px] md:h-auto">
                             <img 
-                                src="/gallery-action-1.png" 
+                                src={`${baseUrl}gallery-grid-3.png`} 
                                 alt="Action 2" 
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 referrerPolicy="no-referrer"
@@ -37,7 +38,7 @@ const Gallery = () => {
                         </div>
                         <div className="relative group overflow-hidden rounded-xl shadow-soft h-[300px] md:h-auto">
                             <img 
-                                src="/gallery-action-2.png" 
+                                src={`${baseUrl}gallery-grid-4.png`} 
                                 alt="Action 3" 
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 referrerPolicy="no-referrer"
@@ -50,10 +51,10 @@ const Gallery = () => {
                     
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
                         {[
-                            { name: "/gallery-grid-1.png", fb: "https://images.unsplash.com/photo-1563213126-a4273aed2016?auto=format&fit=crop&q=80&w=600" },
-                            { name: "/gallery-grid-2.png", fb: "https://images.unsplash.com/photo-1631549911780-87c04df0a996?auto=format&fit=crop&q=80&w=600" },
-                            { name: "/gallery-grid-3.png", fb: "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&q=80&w=600" },
-                            { name: "/gallery-grid-4.png", fb: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=600" }
+                            { name: `${baseUrl}gallery-main.png`, fb: "https://images.unsplash.com/photo-1563213126-a4273aed2016?auto=format&fit=crop&q=80&w=600" },
+                            { name: `${baseUrl}hero-tool.png`, fb: "https://images.unsplash.com/photo-1631549911780-87c04df0a996?auto=format&fit=crop&q=80&w=600" },
+                            { name: `${baseUrl}gallery-grid-3.png`, fb: "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&q=80&w=600" },
+                            { name: `${baseUrl}gallery-grid-4.png`, fb: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=600" }
                         ].map((img, i) => (
                             <div key={i} className="aspect-square relative group overflow-hidden rounded-xl shadow-soft">
                                 <img 

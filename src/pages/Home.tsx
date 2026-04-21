@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Play, ChevronRight, Hourglass, Calculator, Hand, Zap, Target, ShieldCheck, Instagram, CheckCircle2 } from "lucide-react";
 
 const Home = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   return (
     <>
       <section id="home" className="pt-32 pb-20 bg-bg-white">
@@ -85,7 +86,7 @@ const Home = () => {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white">
                 <img 
-                  src="/hero-tool.png" 
+                  src={`${baseUrl}hero-tool.png`} 
                   alt="Pill-Fil Precision Counter" 
                   className="w-full h-[600px] object-cover"
                   referrerPolicy="no-referrer"

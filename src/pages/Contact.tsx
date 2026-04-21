@@ -1,12 +1,12 @@
 import { CheckCircle2, MessageCircle, Send } from "lucide-react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
         

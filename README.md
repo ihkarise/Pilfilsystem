@@ -18,3 +18,18 @@ View your app in AI Studio: https://ai.studio/apps/896b30ab-06f0-4495-ac68-bc787
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Deploy to GitHub Pages (Project Repo)
+
+This app uses `HashRouter`, so routes work on GitHub Pages without server rewrites.
+
+1. Ensure your repository has GitHub Pages configured to **GitHub Actions**.
+2. By default, this project builds with a **relative base path** (`./`) so it works on GitHub Pages project URLs without hardcoding the repo name.
+   - Only set `VITE_BASE_PATH` if you explicitly want an absolute base (example: `/my-repo/`).
+3. Push to `main` (or run the `Deploy static content to Pages` workflow manually).
+4. Open:
+   `https://<your-github-username>.github.io/Pilfilsystem/`
+
+If you still see a blank page, open browser dev tools and confirm:
+- JS/CSS are loading from a relative or repo-prefixed path (not from `/assets/...` at the domain root).
+- Images are loading from a relative or repo-prefixed path (not from `/...` at the domain root).

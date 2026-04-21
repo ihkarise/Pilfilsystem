@@ -3,6 +3,7 @@ import { BriefcaseMedical, Stethoscope, GraduationCap, Store, Instagram, Play } 
 import { Link } from "react-router-dom";
 
 const UseCases = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   const cases = [
     { title: "Homeopathic Clinics", desc: "Perfect for dispensing globules and biochemic tablets with precision", icon: <BriefcaseMedical /> },
     { title: "Ayurveda Clinics", desc: "Ideal for counting ayurvedic pills and tablets hygienically", icon: <Stethoscope /> },
@@ -55,7 +56,7 @@ const UseCases = () => {
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 p-1 shrink-0">
                   <div className="w-full h-full bg-white rounded-full border-2 border-white overflow-hidden p-1">
-                    <img src="/logo.png" alt="Pill-Fil" className="w-full h-full object-contain" />
+                    <img src={`${baseUrl}logo.png`} alt="Pill-Fil" className="w-full h-full object-contain" />
                   </div>
                 </div>
                 <div>
@@ -77,10 +78,10 @@ const UseCases = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {/* Mocking the Top Views/Reels */}
               {[
-                { img: "/gallery-action-1.png", views: "12.4K" },
-                { img: "/gallery-main.png", views: "8.2K" },
-                { img: "/gallery-action-2.png", views: "5.1K" },
-                { img: "/digital-scan.png", views: "3.9K" }
+                { img: `${baseUrl}gallery-main.png`, views: "12.4K" },
+                { img: `${baseUrl}gallery-main.png`, views: "8.2K" },
+                { img: `${baseUrl}hero-tool.png`, views: "5.1K" },
+                { img: `${baseUrl}digital-scan.png`, views: "3.9K" }
               ].map((reel, i) => (
                 <a 
                   key={i}

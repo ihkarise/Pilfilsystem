@@ -1,6 +1,7 @@
 import { QrCode, Scan, CheckCircle2, MousePointer2 } from "lucide-react";
 
 const PillfilDigital = () => {
+    const baseUrl = import.meta.env.BASE_URL;
     return (
         <div className="pt-20">
             <section id="pillfil-digital" className="bg-bg-white overflow-hidden">
@@ -43,7 +44,7 @@ const PillfilDigital = () => {
                             <div className="absolute -inset-1 bg-gradient-to-tr from-secondary-blue to-primary-red blur opacity-20 group-hover:opacity-30 transition" />
                             <div className="relative rounded-2xl overflow-hidden border border-gray-100 shadow-xl bg-white p-2">
                                  <img 
-                                    src="/digital-scan.png" 
+                                    src={`${baseUrl}digital-scan.png`} 
                                     alt="Digital Verification" 
                                     className="w-full h-full object-cover rounded-xl"
                                     referrerPolicy="no-referrer"
