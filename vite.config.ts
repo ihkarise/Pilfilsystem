@@ -8,7 +8,9 @@ export default defineConfig(({mode}) => {
   const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
   const basePath = env.VITE_BASE_PATH || (mode === 'production' ? `/${repoName ?? 'Pilfilsystem'}/` : '/');
   return {
-    base: basePath,
+    // Relative base keeps GitHub Pages deployments working regardless of repo name/casing.
+    // You can still override with VITE_BASE_PATH when needed.
+    base: env.VITE_BASE_PATH || './',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),

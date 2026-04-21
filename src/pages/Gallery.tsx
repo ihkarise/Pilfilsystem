@@ -27,7 +27,7 @@ const Gallery = () => {
                         </div>
                         <div className="relative group overflow-hidden rounded-xl shadow-soft h-[300px] md:h-auto">
                             <img 
-                                src={`${baseUrl}gallery-action-1.png`} 
+                                src={`${baseUrl}gallery-grid-3.png`} 
                                 alt="Action 2" 
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 referrerPolicy="no-referrer"
@@ -38,7 +38,7 @@ const Gallery = () => {
                         </div>
                         <div className="relative group overflow-hidden rounded-xl shadow-soft h-[300px] md:h-auto">
                             <img 
-                                src={`${baseUrl}gallery-action-2.png`} 
+                                src={`${baseUrl}gallery-grid-4.png`} 
                                 alt="Action 3" 
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 referrerPolicy="no-referrer"
@@ -51,8 +51,8 @@ const Gallery = () => {
                     
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
                         {[
-                            { name: `${baseUrl}gallery-grid-1.png`, fb: "https://images.unsplash.com/photo-1563213126-a4273aed2016?auto=format&fit=crop&q=80&w=600" },
-                            { name: `${baseUrl}gallery-grid-2.png`, fb: "https://images.unsplash.com/photo-1631549911780-87c04df0a996?auto=format&fit=crop&q=80&w=600" },
+                            { name: `${baseUrl}gallery-main.png`, fb: "https://images.unsplash.com/photo-1563213126-a4273aed2016?auto=format&fit=crop&q=80&w=600" },
+                            { name: `${baseUrl}hero-tool.png`, fb: "https://images.unsplash.com/photo-1631549911780-87c04df0a996?auto=format&fit=crop&q=80&w=600" },
                             { name: `${baseUrl}gallery-grid-3.png`, fb: "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&q=80&w=600" },
                             { name: `${baseUrl}gallery-grid-4.png`, fb: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=600" }
                         ].map((img, i) => (

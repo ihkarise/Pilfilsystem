@@ -78,9 +78,9 @@ const UseCases = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {/* Mocking the Top Views/Reels */}
               {[
-                { img: `${baseUrl}gallery-action-1.png`, views: "12.4K" },
+                { img: `${baseUrl}gallery-main.png`, views: "12.4K" },
                 { img: `${baseUrl}gallery-main.png`, views: "8.2K" },
-                { img: `${baseUrl}gallery-action-2.png`, views: "5.1K" },
+                { img: `${baseUrl}hero-tool.png`, views: "5.1K" },
                 { img: `${baseUrl}digital-scan.png`, views: "3.9K" }
               ].map((reel, i) => (
                 <a 
