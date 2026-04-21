@@ -5,6 +5,8 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+  const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
+  const basePath = env.VITE_BASE_PATH || (mode === 'production' ? `/${repoName ?? 'Pilfilsystem'}/` : '/');
   return {
     // Relative base keeps GitHub Pages deployments working regardless of repo name/casing.
     // You can still override with VITE_BASE_PATH when needed.
