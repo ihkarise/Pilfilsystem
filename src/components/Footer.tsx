@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { PhoneCall, Target, BriefcaseMedical } from "lucide-react";
 
 const Footer = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   return (
     <footer className="bg-primary-blue text-white pt-24 pb-8">
       <div className="max-w-7xl mx-auto px-6">
@@ -10,7 +11,7 @@ const Footer = () => {
             <Link to="/" className="inline-block mb-8">
               {/* Logo image replaces the word "Pill-Fil" */}
               <img 
-                src="/logo.png" 
+                src={`${baseUrl}logo.png`} 
                 alt="Pill-Fil Logo" 
                 className="h-12 w-auto brightness-0 invert" 
                 referrerPolicy="no-referrer"
