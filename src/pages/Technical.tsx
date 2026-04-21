@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 
 const TechnicalDetails = () => {
+    const baseUrl = import.meta.env.BASE_URL;
     const specs = [
         { label: "Material", val: "Medical-Grade Stainless Steel" },
         { label: "Capacity", val: "6 to 60 Pills" },
@@ -62,7 +63,7 @@ const TechnicalDetails = () => {
                         className="w-full mx-auto rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-white"
                     >
                         <img 
-                            src="/technical-specs.png" 
+                            src={`${baseUrl}technical-specs.png`} 
                             alt="Pill-Fil System Engineering" 
                             className="w-full h-auto object-cover max-h-[600px] hover:scale-105 transition-transform duration-700"
                             onError={(e) => {
