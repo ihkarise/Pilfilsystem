@@ -6,15 +6,32 @@ const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
         
-        // Simulate API call and network delay
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+        
+        const subject = encodeURIComponent(`Pill-Fil Demo Request - ${data.name}`);
+        const bodyText = `
+Name: ${data.name}
+Phone: ${data.phone}
+Clinic: ${data.clinic || "N/A"}
+City: ${data.city}
+Email: ${data.email || "N/A"}
+
+Message: 
+${data.message || "N/A"}
+        `.trim();
+        
+        const body = encodeURIComponent(bodyText);
+
         setTimeout(() => {
+            window.location.href = `mailto:pilfilcadtools@gmail.com?subject=${subject}&body=${body}`;
             setIsSubmitting(false);
             setIsSuccess(true);
-        }, 1200);
+        }, 800);
     };
 
     return (
@@ -70,8 +87,8 @@ const Contact = () => {
                                          <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-6 shadow-inner">
                                              <CheckCircle2 className="w-12 h-12" />
                                          </div>
-                                         <h3 className="text-2xl font-bold mb-4 text-text-primary">Request Sent!</h3>
-                                         <p className="text-text-secondary mb-8 leading-relaxed max-w-sm mx-auto">Thank you for your interest. Our team will contact you shortly to schedule your free demo.</p>
+                                         <h3 className="text-2xl font-bold mb-4 text-text-primary">Opening Email Client...</h3>
+                                         <p className="text-text-secondary mb-8 leading-relaxed max-w-sm mx-auto">Please confirm and send the email from your default mail application.</p>
                                          <button 
                                              type="button"
                                              onClick={() => setIsSuccess(false)}
@@ -87,27 +104,27 @@ const Contact = () => {
                              <div className="grid sm:grid-cols-2 gap-6 relative z-10">
                                  <div className="space-y-2">
                                      <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted">Name *</label>
-                                     <input required type="text" placeholder="Your Name" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue focus:ring-4 focus:ring-secondary-blue/10 outline-none transition-all text-sm font-medium" />
+                                     <input name="name" required type="text" placeholder="Your Name" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue focus:ring-4 focus:ring-secondary-blue/10 outline-none transition-all text-sm font-medium" />
                                  </div>
                                  <div className="space-y-2">
                                      <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted">Phone Number *</label>
-                                     <input required type="tel" placeholder="Your Phone" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue focus:ring-4 focus:ring-secondary-blue/10 outline-none transition-all text-sm font-medium" />
+                                     <input name="phone" required type="tel" placeholder="Your Phone" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue focus:ring-4 focus:ring-secondary-blue/10 outline-none transition-all text-sm font-medium" />
                                  </div>
                                  <div className="space-y-2">
                                      <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted">Clinic Name</label>
-                                     <input type="text" placeholder="Clinic Name" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue focus:ring-4 focus:ring-secondary-blue/10 outline-none transition-all text-sm font-medium" />
+                                     <input name="clinic" type="text" placeholder="Clinic Name" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue focus:ring-4 focus:ring-secondary-blue/10 outline-none transition-all text-sm font-medium" />
                                  </div>
                                  <div className="space-y-2">
                                      <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted">City *</label>
-                                     <input required type="text" placeholder="Your City" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue focus:ring-4 focus:ring-secondary-blue/10 outline-none transition-all text-sm font-medium" />
+                                     <input name="city" required type="text" placeholder="Your City" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue focus:ring-4 focus:ring-secondary-blue/10 outline-none transition-all text-sm font-medium" />
                                  </div>
                                  <div className="sm:col-span-2 space-y-2">
                                      <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted">Email (optional)</label>
-                                     <input type="email" placeholder="your@email.com" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue outline-none text-sm font-medium" />
+                                     <input name="email" type="email" placeholder="your@email.com" className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue outline-none text-sm font-medium" />
                                  </div>
                                  <div className="sm:col-span-2 space-y-2">
                                      <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted">Message (optional)</label>
-                                     <textarea rows={4} placeholder="Tell us about your requirements..." className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue outline-none text-sm font-medium resize-none"></textarea>
+                                     <textarea name="message" rows={4} placeholder="Tell us about your requirements..." className="w-full px-4 py-3.5 rounded-md bg-white border border-border-light focus:border-secondary-blue outline-none text-sm font-medium resize-none"></textarea>
                                  </div>
                                  <div className="sm:col-span-2 mt-4">
                                      <button 

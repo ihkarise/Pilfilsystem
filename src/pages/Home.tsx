@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import { Play, ChevronRight, Hourglass, Calculator, Hand, Zap, Target, ShieldCheck, Instagram, CheckCircle2 } from "lucide-react";
 
 const Home = () => {
-  const baseUrl = import.meta.env.BASE_URL;
   return (
     <>
       <section id="home" className="pt-32 pb-20 bg-bg-white">
@@ -50,9 +50,9 @@ const Home = () => {
                 transition={{ delay: 0.3 }}
                 className="flex flex-wrap gap-4 mb-16"
               >
-                <button className="bg-primary-red text-white px-8 py-4 rounded-pill text-base font-semibold hover:bg-hover-red transition-all shadow-soft hover:shadow-hover">
+                <Link to="/contact" className="bg-primary-red text-white px-8 py-4 rounded-pill text-base font-semibold hover:bg-hover-red transition-all shadow-soft hover:shadow-hover">
                   Book Demo
-                </button>
+                </Link>
                 <a 
                   href="https://www.instagram.com/pilfilmedicinecountingtool/reels/?hl=en"
                   target="_blank"
@@ -86,7 +86,7 @@ const Home = () => {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white">
                 <img 
-                  src={`${baseUrl}hero-tool.png`} 
+                  src="/hero-tool.png" 
                   alt="Pill-Fil Precision Counter" 
                   className="w-full h-[600px] object-cover"
                   referrerPolicy="no-referrer"
